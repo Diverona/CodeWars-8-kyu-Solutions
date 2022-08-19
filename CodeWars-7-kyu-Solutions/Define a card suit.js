@@ -7,19 +7,58 @@ Our deck (is preloaded):
 ('3♥') -> return 'hearts'
 ('3♠') -> return 'spades'*/
 
-function defineSuit(card) {
-  let cardArr = card.split("");
+// function defineSuit(card) {
+//   return card[card.length - 1] === "\u2663"
+//     ? "clubs"
+//     : card[card.length - 1] === "\u2666"
+//     ? "diamonds"
+//     : card[card.length - 1] === "\u2665"
+//     ? "hearts"
+//     : card[card.length - 1] === "\u2660"
+//     ? "spades"
+//     : "such a suit does not exist";
+// }
 
-  return cardArr[card.length - 1] === "\u2663"
-    ? "clubs"
-    : cardArr[card.length - 1] === "\u2666"
-    ? "diamonds"
-    : cardArr[card.length - 1] === "\u2665"
-    ? "hearts"
-    : cardArr[card.length - 1] === "\u2660"
-    ? "spades"
-    : "such a suit does not exist";
-}
+// function defineSuit(card) {
+//   let suit = card[card.length - 1];
+
+//   switch (suit) {
+//     case "♥":
+//       return "hearts";
+//     case "♣":
+//       return "clubs";
+//     case "♠":
+//       return "spades";
+//     case "♦":
+//       return "diamonds";
+//   }
+// }
+//   return card[card.length - 1] === "\u2663"
+//     ? "clubs"
+//     : card[card.length - 1] === "\u2666"
+//     ? "diamonds"
+//     : card[card.length - 1] === "\u2665"
+//     ? "hearts"
+//     : card[card.length - 1] === "\u2660"
+//     ? "spades"
+//     : "such a suit does not exist";
+// }
+
+const defineSuit = (card) => {
+  return { "♥": "hearts", "♠": "spades", "♦": "diamonds", "♣": "clubs" }[
+    card[card.length - 1]
+  ];
+};
+//   switch (suit) {
+//     case ;
+//     case "♣":
+//       return "clubs";
+//     case "♠":
+//       return "spades";
+//     case "♦":
+//       return "diamonds";
+//   }
+// }
 
 console.log(defineSuit("3♥"));
 console.log(defineSuit("10♣"));
