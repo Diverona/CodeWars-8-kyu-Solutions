@@ -9,16 +9,22 @@
 // arraysSimilar(arr2, arr3); Should equal false
 // arraysSimilar(arr3, arr4); Should equal false
 
+// function arraysSimilar(arr1, arr2) {
+//   if (arr1.length !== arr2.length) return false;
+
+//   arr1.sort((a, b) => a - b);
+//   arr2.sort((a, b) => a - b);
+
+//   for (let i = 0; i < arr1.length; i++) {
+//     if (arr1[i] !== arr2[i]) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// ===================
+
 function arraysSimilar(arr1, arr2) {
-  if (arr1.length !== arr2.length) return false;
-
-  arr1.sort((a, b) => a - b);
-  arr2.sort((a, b) => a - b);
-
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) {
-      return false;
-    }
-  }
-  return true;
+  return JSON.stringify(arr1.sort()) === JSON.stringify(arr2.sort());
 }
