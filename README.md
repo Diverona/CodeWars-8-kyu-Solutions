@@ -1,1 +1,1 @@
-# CodeWars-8-kyu-Solutions
+# CodeWars Solutions
