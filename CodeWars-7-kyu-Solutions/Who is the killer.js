@@ -15,7 +15,7 @@ return the name of the one killer, in our case 'James' because he is the only pe
 
 function killer(suspectInfo, dead) {
   for (let name in suspectInfo) {
-    let count = 0;
+    let count;
     suspectInfo[count] = 0;
 
     let peopleTheKillerSow = suspectInfo[name];
