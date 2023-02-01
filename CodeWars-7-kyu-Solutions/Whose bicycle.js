@@ -1,74 +1,35 @@
+// Не моє
+// function whoseBicycle(dairy1, dairy2, dairy3) {
+//   const diaries = [dairy1, dairy2, dairy3];
+//   console.log(diaries);
+//   const son = {
+//     0: 'first',
+//     1: 'second',
+//     2: 'third'
+//   };
+//   console.log(son);
+//   const scores = diaries.map((diary, index) => {
+//     const keys = Object.keys(diary);
+//     console.log(keys);
+//     return keys.reduce((acc, cur) => acc + diary[cur], 0);
+//   });
+//   console.log(scores);
+//   const maxValue = Math.max(...scores);
+
+//   const maxDiary = scores.lastIndexOf(maxValue);
+//   console.log(maxDiary);
+//   return `I need to buy a bicycle for my ${son[maxDiary]} son.`;
+// }
+
 function whoseBicycle(diary1, diary2, diary3) {
-  let first = {
-    diary: diary1,
-    age: ageTable["firstSonAge"],
-    score: 0,
-  };
+  let marks1 = Object.values(diary1).reduce((sum, mark) => sum + mark, 0);
+  let marks2 = Object.values(diary2).reduce((sum, mark) => sum + mark, 0);
+  let marks3 = Object.values(diary3).reduce((sum, mark) => sum + mark, 0);
 
-  let second = {
-    diary: diary2,
-    age: ageTable["secondSonAge"],
-    score: 0,
-  };
-
-  let third = {
-    diary: diary3,
-    age: ageTable["thirdSonAge"],
-    score: 0,
-  };
-
-  for (let value of Object.values(diary1)) {
-    first["score"] += value;
-  }
-  for (let value of Object.values(diary2)) {
-    second["score"] += value;
-  }
-  for (let value of Object.values(diary3)) {
-    third["score"] += value;
-  }
-  let mark1 = first["score"];
-  let mark2 = second["score"];
-  let mark3 = third["score"];
-
-  let marks = {
-    first: mark1,
-    second: mark2,
-    third: mark3,
-  };
-
-  let max = 0;
-  let maxName = null;
-  let minAge = 100;
-
-  for (const [son, mark] of Object.entries(marks)) {
-    if (max < mark) {
-      max = mark;
-      maxName = son;
-    } else if (mark1 === mark2) maxName = son[Math.max(mark1, mark2, mark3)];
-    else if (mark1 === mark2 || mark1 === mark3 || mark2 === mark3) {
-      //       for (const [son, age] of Object.entries(ageTable)) {
-      //         if (minAge > age) {
-      //           minAge = age;
-      //           maxName = son;
-      //         }
-      //       }
-      //     }
-    }
-
-    delete Object.assign(ageTable, { first: ageTable["firstSonAge"] })[
-      "firstSonAge"
-    ];
-    delete Object.assign(ageTable, { second: ageTable["secondSonAge"] })[
-      "secondSonAge"
-    ];
-    delete Object.assign(ageTable, { third: ageTable["thirdSonAge"] })[
-      "thirdSonAge"
-    ];
-    console.log(first["score"]);
-    console.log(second["score"]);
-    console.log(third["score"]);
-
-    console.log(maxName);
-  }
-  return `I need to buy a bicycle for my ${maxName} son.`;
+  if (marks1 > marks2 && marks1 > marks3)
+    return "I need to buy a bicycle for my first son.";
+  if (marks2 >= marks1 && marks2 > marks3)
+    return "I need to buy a bicycle for my second son.";
+  if (marks3 >= marks1 && marks3 >= marks2)
+    return "I need to buy a bicycle for my third son.";
 }

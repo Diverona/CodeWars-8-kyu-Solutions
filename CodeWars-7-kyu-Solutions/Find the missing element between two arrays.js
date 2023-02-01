@@ -19,10 +19,22 @@ The first array will always have at least one element.*/
 
 // console.log(findMissing(arr1, arr2));
 
+// function findMissing(arr1, arr2) {
+//   for (let j = 0; j < arr2.length; j++) {
+//     i = arr1.indexOf(arr2[j]);
+//     arr1.splice(i, 1);
+//   }
+//   return arr1[0];
+// }
+
 function findMissing(arr1, arr2) {
-  for (let j = 0; j < arr2.length; j++) {
-    i = arr1.indexOf(arr2[j]);
-    arr1.splice(i, 1);
+  for (let el of arr2) {
+    arr1.find((n, index) => {
+      if (n === el) {
+        arr1.splice(index, 1);
+      }
+    });
   }
-  return arr1[0];
+
+  return arr1[0] || 0;
 }

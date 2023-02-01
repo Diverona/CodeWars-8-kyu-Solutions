@@ -26,7 +26,7 @@ The combine function should be a good citizen, so should not mutate the input ob
 //   return merged;
 // }
 
-function combine(...obj) {
+/*function combine(...obj) {
   let objArr = [].concat(...obj);
   let merged = {};
 
@@ -37,4 +37,76 @@ function combine(...obj) {
   });
 
   return merged;
+}
+*/
+
+// function combine(...obj) {
+//   let arr = [];
+//   let mergedObj = {};
+
+//   getArrOfObjects(...obj);
+
+//   arr.forEach((subObj) => {
+//     for (let key in subObj) {
+//       if (!isKeyinMergedObj(key)) {
+//         setKeyToMergedObj(key, subObj[key]);
+//       } else {
+//         addValuesOfMatchingKeys(key, subObj[key]);
+//       }
+//     }
+//   });
+
+//   console.log(mergedObj);
+//   return mergedObj;
+
+//   function getArrOfObjects(...obj) {
+//     arr = [].concat(...obj);
+//     return arr;
+//   }
+
+//   function isKeyinMergedObj(key) {
+//     return key in mergedObj;
+//   }
+
+//   function setKeyToMergedObj(key, value) {
+//     return (mergedObj[key] = value);
+//   }
+
+//   function addValuesOfMatchingKeys(key, value) {
+//     return (mergedObj[key] += value);
+//   }
+// }
+
+// function combine(...params) {
+//   return params.reduce((mergedObj, subObj) => {
+//     for (let key in subObj) {
+//       mergedObj[key] =
+//         key in mergedObj ? mergedObj[key] + subObj[key] : subObj[key];
+//     }
+//     return mergedObj;
+//   }, {});
+// }
+
+// function combine() {
+//   let obj = {};
+
+//   for (let i = 0; i < arguments.length; i++) {
+//     for (let key in arguments[i]) {
+//       obj[key] = obj[key] ? obj[key] + arguments[i][key] : arguments[i][key];
+//     }
+//   }
+
+//   return obj;
+// }
+
+function combine(...args) {
+  return args.reduce(
+    (mergedObj, subObj) => (
+      Object.keys(subObj).forEach(
+        (key) => (mergedObj[key] = (mergedObj[key] || 0) + subObj[key])
+      ),
+      mergedObj
+    ),
+    {}
+  );
 }

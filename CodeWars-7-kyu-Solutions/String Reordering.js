@@ -14,18 +14,24 @@ List = [
 Output:
 'Vatsan took his dog for a spin' */
 
+// function sentence(List) {
+//   let arr = [];
+//   let str = "";
+
+//   for (let obj of List) {
+//     arr.push(Object.entries(obj)[0]);
+//   }
+
+//   arr.sort(([a], [b]) => a - b);
+
+//   for (let elem of arr) {
+//     str += elem[1] + " ";
+//   }
+//   return str.trim();
+// }
+
 function sentence(List) {
-  let arr = [];
-  let str = "";
-
-  for (let obj of List) {
-    arr.push(Object.entries(obj)[0]);
-  }
-
-  arr.sort(([a], [b]) => a - b);
-
-  for (let elem of arr) {
-    str += elem[1] + " ";
-  }
-  return str.trim();
+  return List.sort((obj1, obj2) => Object.keys(obj1) - Object.keys(obj2))
+    .map((obj) => Object.values(obj)[0])
+    .join(" ");
 }

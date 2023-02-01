@@ -19,21 +19,39 @@ odd ones are 1, 3, 5, 7, so the second group is 'oeas'
 And the final string to return is 'Cdwr oeas'
 */
 
+// function sortMyString(S) {
+//   let strEven = "";
+//   let strOdd = "";
+//   for (let i = 0; i < S.length; i++) {
+//     if (i % 2 === 0) {
+//       strEven += S[i];
+//     } else {
+//       strOdd += S[i];
+//     }
+//   }
+//   return strEven + " " + strOdd;
+// }
+
+// function sortMyString(S) {
+//   let strEven = S.split("").reduce(
+//     (str, char, i) => (i % 2 === 0 ? str + char : str),
+//     ""
+//   );
+//   let strOdd = S.split("").reduce(
+//     (str, char, i) => (i % 2 !== 0 ? str + char : str),
+//     ""
+//   );
+
+//   return strEven + " " + strOdd;
+// }
+
 function sortMyString(S) {
-  let arr = S.split("");
-  let evenS = "";
-  let oddS = "";
+  let strEven = S.split("")
+    .map((char, i) => (i % 2 === 0 ? char : ""))
+    .join("");
+  let strOdd = S.split("")
+    .map((char, i) => (i % 2 !== 0 ? char : ""))
+    .join("");
 
-  for (let i = 0; i < arr.length; i++) {
-    i % 2 ? (evenS += arr[i]) : (oddS += arr[i]);
-  }
-  return;
+  return `${strEven} ${strOdd}`;
 }
-
-let objs = {};
-
-for (let obj of arr.entries) {
-  objs[obj] = arr[obj];
-}
-
-console.log(objs);

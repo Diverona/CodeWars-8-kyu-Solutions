@@ -18,9 +18,15 @@ Input will always have the first letter capitalised and the rest lowercase (e.g.
 The input can be modified
 */
 
-function nicknameGenerator(name) {
-  let vowel = ["a", "e", "i", "o", "u"];
+// function nicknameGenerator(name) {
+//   let vowel = ["a", "e", "i", "o", "u"];
 
+//   if (name.length <= 3) return "Error: Name too short";
+//   return vowel.indexOf(name[2]) !== -1 ? name.slice(0, 4) : name.slice(0, 3);
+// }
+
+function nicknameGenerator(name) {
+  let vowels = ["a", "e", "i", "o", "u"];
   if (name.length <= 3) return "Error: Name too short";
-  return vowel.indexOf(name[2]) !== -1 ? name.slice(0, 4) : name.slice(0, 3);
+  return vowels.includes(name[2]) ? name.slice(0, 4) : name.slice(0, 3);
 }

@@ -8,12 +8,22 @@
 
 // vowelOne( "aeiou, abc" ) "1111100100"
 
-function vowelOne(s) {
-  let res = "";
-  let vowels = ["a", "o", "e", "i", "u"];
+// function vowelOne(s) {
+//   let res = "";
+//   let vowels = ["a", "o", "e", "i", "u"];
 
-  for (let char of s) {
-    vowels.indexOf(char.toLowerCase()) !== -1 ? (res += 1) : (res += 0);
-  }
-  return res;
+//   for (let char of s) {
+//     vowels.indexOf(char.toLowerCase()) !== -1 ? (res += 1) : (res += 0);
+//   }
+//   return res;
+// }
+
+function vowelOne(s) {
+  let vowels = ["a", "e", "i", "o", "u"];
+
+  return s
+    .toLowerCase()
+    .split("")
+    .map((let) => (vowels.includes(let) ? 1 : 0))
+    .join("");
 }

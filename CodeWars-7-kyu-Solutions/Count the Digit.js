@@ -32,21 +32,82 @@ Note that 121 has twice the digit 1. */
 //   return sum;
 // }
 
+// function nbDig(n, d) {
+//   let arr = [];
+//   let sum = 0;
+//   for (let i = 0; i <= n; i++) {
+//     arr[i] = i * i;
+//   }
+
+//   for (let el of arr) {
+//     el = el + "";
+
+//     for (let k of el) {
+//       if (+k === d) {
+//         sum++;
+//       }
+//     }
+//   }
+//   return sum;
+// }
+
+// function nbDig(n, d) {
+//   const arr = [];
+//   let count = 0;
+
+//   getArrOfSquares();
+
+//   turnArrElemsToArrs();
+//   function turnArrElemsToArrs() {
+//     return arr.map((el) => el.toString().split(""));
+//   }
+
+// 	console.log(arr);
+
+//   for (let el of arr) {
+//     let subArr = el.toString().split("");
+
+//     for (let num of subArr) {
+//       if (+num === d) count++;
+//     }
+//   }
+
+//   return count;
+
+//   function getArrOfSquares() {
+//     for (let i = 0; i <= n; i++) {
+//       arr.push(i ** 2);
+//     }
+//   }
+// }
+
 function nbDig(n, d) {
-  let arr = [];
-  let sum = 0;
-  for (let i = 0; i <= n; i++) {
-    arr[i] = i * i;
-  }
+  const arr = [];
+  let count = 0;
+
+  getArrOfSquares();
 
   for (let el of arr) {
-    el = el + "";
+    let subArr = turnArrElemsToArrs(el);
 
-    for (let k of el) {
-      if (+k === d) {
-        sum++;
-      }
+    for (let num of subArr) {
+      countDinElemsOfArr(num);
     }
   }
-  return sum;
+
+  return count;
+
+  function turnArrElemsToArrs(el) {
+    return el.toString().split("");
+  }
+
+  function getArrOfSquares() {
+    for (let i = 0; i <= n; i++) {
+      arr.push(i ** 2);
+    }
+  }
+
+  function countDinElemsOfArr(num) {
+    if (+num === d) count++;
+  }
 }

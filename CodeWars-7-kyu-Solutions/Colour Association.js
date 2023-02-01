@@ -6,27 +6,18 @@ For example:
 
 var array = [["white", "goodness"], ...] //returns [{white: 'goodness'}, ...] */
 
-let array = [
-  ["orange", "lazy"],
-  ["blue", "flexible"],
-  ["blue", "angry"],
-  ["white", "sensitive"],
-  ["pink", "dramatic"],
-  ["pink", "flexible"],
-];
+// function colourAssociation(array) {
+//   let res = [];
+//   for (let i = 0; i < array.length; i++) {
+//     a = array[i][0];
+//     b = array[i][1];
+//     res.push({ [a]: b });
+//   }
 
-function colourAssociation(array) {
-  let res = [];
-  for (let i = 0; i < array.length; i++) {
-    a = array[i][0];
-    b = array[i][1];
-    res.push({ [a]: b });
-  }
+//   return res;
+// }
 
-  return res;
-}
-
-console.log(colourAssociation(array));
+// console.log(colourAssociation(array));
 
 // let res = [];
 // for (let i = 0; i < array.length; i++) {
@@ -36,3 +27,30 @@ console.log(colourAssociation(array));
 // }
 
 // console.log(res);
+
+// function colourAssociation(array) {
+//   let res = [];
+
+//   array.forEach((subArr) => {
+//     [color, association] = subArr;
+//     res.push({
+//       [color]: association,
+//     });
+//   });
+//   return res;
+// }
+
+// function colourAssociation(array) {
+//   return array.map(([color, association]) => ({ [color]: association }));
+// }
+
+function colourAssociation(array) {
+  return array.map((subArr) => Object.fromEntries([subArr]));
+}
+
+console.log(
+  colourAssociation([
+    ["white", "goodness"],
+    ["blue", "tranquility"],
+  ])
+);
